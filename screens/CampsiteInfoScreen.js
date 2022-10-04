@@ -22,7 +22,7 @@ const CampsiteInfoScreen = ({ route }) => {
 
   return (
     <FlatList
-      date={comments.filter((comment) => comment.campsiteId === campsite.id)}
+      data={comments.filter((comment) => comment.campsiteId === campsite.id)}
       renderItem={renderCommentItem}
       keyExtractor={(item) => item.id.toString()}
       contentContainerStyle={{
@@ -41,7 +41,7 @@ const CampsiteInfoScreen = ({ route }) => {
 
 const styles = StyleSheet.create({
   commentsTitle: {
-    titleAlign: "center",
+    textAlign: "center",
     backgroundColor: "#fff",
     fontSize: 16,
     fontWeight: "bold",
