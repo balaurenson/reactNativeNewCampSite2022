@@ -35,7 +35,7 @@ const AboutScreen = () => {
               <Avatar rounded source={partner.image}></Avatar>
               <ListItem.Content>
                 <ListItem.Title>{partner.name}</ListItem.Title>
-                <ListItem.Subtitle>{partner.Subtitle}</ListItem.Subtitle>
+                <ListItem.Subtitle>{partner.description}</ListItem.Subtitle>
               </ListItem.Content>
             </ListItem>
           );
