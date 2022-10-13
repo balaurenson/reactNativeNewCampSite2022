@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View, Modal } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { Card, Icon } from "react-native-elements";
 import { baseUrl } from "../../shared/baseUrl";
 

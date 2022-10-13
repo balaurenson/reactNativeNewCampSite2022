@@ -1,9 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { baseUrl } from "../../shared/baseUrl";
 
-
-
-
 export const fetchComments = createAsyncThunk(
   "comments/fetchComments",
   async () => {
@@ -12,28 +9,25 @@ export const fetchComments = createAsyncThunk(
   }
 );
 
-const postComment = createAsyncThunk(
-  'comments/postComment',
-  async (payload, { dispatch, getState}) => {
+export const postComment = createAsyncThunk(
+  "comments/postComment",
+  async (payload, { dispatch, getState }) => {
     setTimeout(() => {
       const { comments } = getState();
-      
+      payload.date = date.toISOString();
+      payload.id = comments.commentsArray.length();
+      dispatch(addComment(payload));
     }, 2000);
   }
-)
+);
 
-
-const commentsSlice = createSlice({    // Task 3 -- Need help
+const commentsSlice = createSlice({
   name: "comments",
   initialState: { isLoading: true, errMess: null, commentsArray: [] },
   reducers: {
     addComment: (state, action) => {
-      if (state.includes(action.payload)) {
-        return state.filter((state) => !== action.payload);
-      } else {
-        state.commentsArray.push(action.payload);
-      }
-    }
+      state.commentsArray.push(action.payload);
+    },
   },
   extraReducers: {
     [fetchComments.pending]: (state) => {
@@ -51,5 +45,5 @@ const commentsSlice = createSlice({    // Task 3 -- Need help
   },
 });
 
-export const { addComment } = commentsSlice.reducer;
+export const { addComment } = commentsSlice.actions;
 export const commentsReducer = commentsSlice.reducer;
