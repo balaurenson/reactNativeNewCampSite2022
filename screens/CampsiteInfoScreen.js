@@ -84,25 +84,25 @@ const CampsiteInfoScreen = ({ route }) => {
         <View style={styles.modal}>
           <Rating
             showRating
-            startingValue=""
-            imageSize="40"
+            startingValue={rating}
+            imageSize={40}
             onFinishRating={(rating) => setRating(rating)}
             style={{ paddingVertical: 10 }}
-          ></Rating>
+          />
           <Input
             placeholder="Author"
             leftIcon={{ type: "font-awesome", name: "user-o" }}
             leftIconContainerStyle={{ paddingRight: 10 }}
             onChangeText={(author) => setAuthor(author)}
             value={author}
-          ></Input>
+          />
           <Input
             placeholder="Comment"
             leftIcon={{ type: "font-awesome", name: "comment-o" }}
             leftIconContainerStyle={{ paddingRight: 10 }}
             onChangeText={(text) => setText(text)}
             value={text}
-          ></Input>
+          />
           <View style={{ margin: 10 }}>
             <Button
               title="Submit"
@@ -111,7 +111,7 @@ const CampsiteInfoScreen = ({ route }) => {
                 handleSubmit();
                 resetForm();
               }}
-            ></Button>
+            />
           </View>
           <View style={{ margin: 10 }}>
             <Button
@@ -121,7 +121,7 @@ const CampsiteInfoScreen = ({ route }) => {
               }}
               color="#808080"
               title="Cancel"
-            ></Button>
+            />
           </View>
         </View>
       </Modal>
