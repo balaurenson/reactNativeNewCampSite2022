@@ -11,7 +11,7 @@ import {
 import HomeScreen from "./HomeScreen";
 import AboutScreen from "./AboutScreen";
 import ContactScreen from "./ContactScreen";
-import ReservationScreen from "./reservationScreen";
+import ReservationScreen from "./ReservationScreen";
 import { Icon } from "react-native-elements";
 import logo from "../assets/images/logo.png";
 import { useDispatch } from "react-redux";
@@ -53,36 +53,6 @@ const HomeNavigator = () => {
   );
 };
 
-const DirectoryNavigator = () => {
-  const Stack = createStackNavigator();
-  return (
-    <Stack.Navigator initialRouteName="Directory" screenOptions={screenOptions}>
-      <Stack.Screen
-        name="Directory"
-        component={DirectoryScreen}
-        options={({ navigation }) => ({
-          title: "Campsite Directory",
-          headerLeft: () => (
-            <Icon
-              name="list"
-              type="font-awesome"
-              iconStyle={styles.stackIcon}
-              onPress={() => navigation.toggleDrawer()}
-            />
-          ),
-        })}
-      />
-      <Stack.Screen
-        name="CampsiteInfo"
-        component={CampsiteInfoScreen}
-        options={({ route }) => ({
-          title: route.params.campsite.name,
-        })}
-      />
-    </Stack.Navigator>
-  );
-};
-
 const AboutNavigator = () => {
   const Stack = createStackNavigator();
   return (
@@ -113,7 +83,7 @@ const ContactNavigator = () => {
         name="Contact"
         component={ContactScreen}
         options={({ navigation }) => ({
-          title: "contact Us",
+          title: "Contact Us",
           headerLeft: () => (
             <Icon
               name="address-card"
@@ -190,6 +160,36 @@ const LoginNavigator = () => {
               onPress={() => navigation.toggleDrawer()}
             />
           ),
+        })}
+      />
+    </Stack.Navigator>
+  );
+};
+
+const DirectoryNavigator = () => {
+  const Stack = createStackNavigator();
+  return (
+    <Stack.Navigator initialRouteName="Directory" screenOptions={screenOptions}>
+      <Stack.Screen
+        name="Directory"
+        component={DirectoryScreen}
+        options={({ navigation }) => ({
+          title: "Campsite Directory",
+          headerLeft: () => (
+            <Icon
+              name="list"
+              type="font-awesome"
+              iconStyle={styles.stackIcon}
+              onPress={() => navigation.toggleDrawer()}
+            />
+          ),
+        })}
+      />
+      <Stack.Screen
+        name="CampsiteInfo"
+        component={CampsiteInfoScreen}
+        options={({ route }) => ({
+          title: route.params.campsite.name,
         })}
       />
     </Stack.Navigator>
@@ -326,7 +326,7 @@ const Main = () => {
               />
             ),
           }}
-        ></Drawer.Screen>
+        />
         <Drawer.Screen
           name="Contact"
           component={ContactNavigator}
@@ -342,7 +342,7 @@ const Main = () => {
               />
             ),
           }}
-        ></Drawer.Screen>
+        />
       </Drawer.Navigator>
     </View>
   );
